@@ -1,0 +1,16 @@
+fastapi
+uvicorn[standard]
+torch
+transformers
+sentence-transformers
+sentencepiece
+beautifulsoup4
+requests
+googlesearch-python
+python-multipart
+pydantic
+python-dotenv
+apify-client
+selenium
+lxml
+scrapy-splash
