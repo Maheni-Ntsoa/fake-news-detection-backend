@@ -20,6 +20,7 @@ parts/
 sdist/
 var/
 wheels/
+pip-wheel-metadata/
 share/python-wheels/
 *.egg-info/
 .installed.cfg
@@ -49,7 +50,6 @@ coverage.xml
 *.py,cover
 .hypothesis/
 .pytest_cache/
-cover/
 
 # Translations
 *.mo
@@ -72,7 +72,6 @@ instance/
 docs/_build/
 
 # PyBuilder
-.pybuilder/
 target/
 
 # Jupyter Notebook
@@ -83,9 +82,7 @@ profile_default/
 ipython_config.py
 
 # pyenv
-#   For a library or package, you might want to ignore these files since the code is
-#   intended to run in multiple environments; otherwise, check them in:
-# .python-version
+.python-version
 
 # pipenv
 #   According to pypa/pipenv#598, it is recommended to include Pipfile.lock in version control.
@@ -94,22 +91,7 @@ ipython_config.py
 #   install all needed dependencies.
 #Pipfile.lock
 
-# poetry
-#   Similar to Pipfile.lock, it is generally recommended to include poetry.lock in version control.
-#   This is especially recommended for binary packages to ensure reproducibility, and is more
-#   commonly ignored for libraries.
-#   https://python-poetry.org/docs/basic-usage/#commit-your-poetrylock-file-to-version-control
-#poetry.lock
-
-# pdm
-#   Similar to Pipfile.lock, it is generally recommended to include pdm.lock in version control.
-#pdm.lock
-#   pdm stores project-wide configurations in .pdm.toml, but it is recommended to not include it
-#   in version control.
-#   https://pdm.fming.dev/#use-with-ide
-.pdm.toml
-
-# PEP 582; used by e.g. github.com/David-OConnor/pyflow and github.com/pdm-project/pdm
+# PEP 582; used by e.g. github.com/David-OConnor/pyflow
 __pypackages__/
 
 # Celery stuff
@@ -146,73 +128,100 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-# pytype static type analyzer
-.pytype/
+# Machine Learning specific
+# Model files (large binary files)
+*.pkl
+*.pickle
+*.joblib
+*.h5
+*.hdf5
+*.pb
+*.onnx
+*.pt
+*.pth
+*.safetensors
+*.bin
+*.model
 
-# Cython debug symbols
-cython_debug/
+# Model directories and files
+model/xlmroberta_finetuned/
+model/prophet_model.json
+model/*.json
+model/*.pkl
+model/*.joblib
+model/*.h5
+model/*.safetensors
+model/*.bin
+model/*.model
 
-# PyCharm
-#  JetBrains specific template is maintained in a separate JetBrains.gitignore that can
-#  be added to the global gitignore or merged into this project gitignore.  For a PyCharm
-#  project, it is recommended to use this approach.
-.idea/
+# Hugging Face model files
+*/config.json
+*/model.safetensors
+*/pytorch_model.bin
+*/tf_model.h5
+*/sentencepiece.bpe.model
+*/tokenizer.json
+*/tokenizer_config.json
+*/special_tokens_map.json
+*/vocab.txt
+*/merges.txt
 
-# VSCode
+# Prophet model files
+prophet_model.json
+*.prophet
+
+# Scikit-learn model files
+*.joblib
+*.pkl
+
+# TensorFlow SavedModel format
+saved_model/
+*.pb
+variables/
+
+# Data files
+*.csv
+*.json
+*.parquet
+*.feather
+data/
+datasets/
+
+# Logs and temporary files
+logs/
+*.log
+temp/
+tmp/
+
+# API keys and sensitive information
+.env
+.env.local
+.env.production
+.env.staging
+config.ini
+secrets.json
+
+# IDE specific files
 .vscode/
+.idea/
+*.swp
+*.swo
+*~
 
-# macOS
+# macOS specific
 .DS_Store
 .AppleDouble
 .LSOverride
 
-# macOS Thumbnails
-._*
-
-# macOS Directories potentially created on remote AFP share
-.AppleDB
-.AppleDesktop
-Network Trash Folder
-Temporary Items
-.atrashcan
-
-# Windows
+# Windows specific
 Thumbs.db
-Thumbs.db:encryptable
 ehthumbs.db
-ehthumbs_vista.db
-*.tmp
-*.temp
-*.lnk
 Desktop.ini
-$RECYCLE.BIN/
 
-# Linux
+# Linux specific
 *~
 
-# Project specific
-# API keys and secrets
-config.ini
-secrets.json
-.secrets
-api_keys.txt
-
-# Model files (if too large)
-# Uncomment if your model files are too large for GitHub
-# *.pkl
-# *.joblib
-# *.h5
-# *.pb
-
-# Logs
-logs/
-*.log
-
-# Data files (if sensitive or too large)
-# data/
-# *.csv
-# *.json (be careful with this one)
-
-# Temporary files
-temp/
-tmp/
+# Backup files
+*.bak
+*.backup
+*.old
