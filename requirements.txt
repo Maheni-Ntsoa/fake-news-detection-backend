@@ -14,3 +14,8 @@ apify-client
 selenium
 lxml
 scrapy-splash
+pandas
+numpy
+scikit-learn
+joblib
+prophet
