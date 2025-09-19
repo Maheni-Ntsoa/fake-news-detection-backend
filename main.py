@@ -7,6 +7,7 @@ from typing import Optional
 from model.model_predictor import predict_fake_news_xlm, predict_final_combined
 from fact_checker import fact_check
 from facebook_scraper import scrape_facebook_fallback
+import requests
 
 app = FastAPI(title="Fake news detection API Malagasy - Modèle Combiné")
 
@@ -39,10 +40,11 @@ def check_text(data: FacebookURL):
         "facebook_url": "https://www.facebook.com/page/posts/123456789"
     }
     """
-    
+
+    res = requests.get(data.facebook_url, allow_redirects=True)
 
     # Scraper la publication Facebook
-    post_text, formatted_date = scrape_facebook_fallback(data.facebook_url)
+    post_text, formatted_date = scrape_facebook_fallback(res.url)
 
     # Extraire le texte et la date
     text = post_text
